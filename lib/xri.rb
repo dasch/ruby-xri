@@ -4,7 +4,9 @@ require 'xri/invalid_identifier_exception'
 class XRI
 
   def initialize(xri)
-    raise InvalidIdentifierException, xri if xri =~ /\s/
+    if xri.empty? or %w[! @ = +].include? xri or xri =~ /\s/
+      raise InvalidIdentifierException, xri 
+    end
 
     @xri = xri
   end

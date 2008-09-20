@@ -14,6 +14,20 @@ class XRITest < Test::Unit::TestCase
     end
   end
 
+  def test_empty_xri_should_fail
+    assert_raise XRI::InvalidIdentifierException do
+      XRI.new("")
+    end
+  end
+
+  def test_xri_with_only_global_context_symbol_should_fail
+    %W[! @ = +].each do |xri|
+      assert_raise XRI::InvalidIdentifierException do
+        XRI.new(xri)
+      end
+    end
+  end
+
   def test_xri_with_spaces_should_fail
     assert_raise XRI::InvalidIdentifierException do
       XRI.new("=foo bar")
