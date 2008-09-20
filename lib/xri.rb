@@ -9,4 +9,16 @@ class XRI
     @xri = xri
   end
 
+  def personal?
+    @xri =~ /^=/
+  end
+
+  def organizational?
+    @xri =~ /^@/
+  end
+
+  def conceptual?
+    @xri =~ /^\+/
+  end
+
 end
