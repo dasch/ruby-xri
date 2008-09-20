@@ -21,4 +21,8 @@ class XRI
     @xri =~ /^\+/
   end
 
+  def to_s
+    @xri
+  end
+
 end

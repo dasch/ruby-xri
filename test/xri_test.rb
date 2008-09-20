@@ -4,6 +4,10 @@ require 'lib/xri'
 
 class XRITest < Test::Unit::TestCase
 
+  def test_string_representation
+    assert_equal "=john.doe", XRI.new("=john.doe").to_s
+  end
+
   def test_valid_xri_should_not_fail
     assert_nothing_raised do
       XRI.new("=foobar")
