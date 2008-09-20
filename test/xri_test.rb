@@ -41,4 +41,9 @@ class XRITest < Test::Unit::TestCase
     assert  xri.conceptual?
   end
 
+  def test_equality
+    assert_equal XRI.new("=john.doe"), XRI.new("=john.doe")
+    assert_not_equal XRI.new("=john.doe"), XRI.new("=jane.doe")
+  end
+
 end

@@ -21,6 +21,10 @@ class XRI
     @xri =~ /^\+/
   end
 
+  def == other
+    @xri == other.to_s
+  end
+
   def to_s
     @xri
   end
