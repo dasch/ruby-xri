@@ -32,7 +32,7 @@ class XRI
   end
 
   def to_s
-    @xri
+    @xri.dup
   end
 
 end

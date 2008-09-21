@@ -69,6 +69,12 @@ class XRITest < Test::Unit::TestCase
     assert_not_equal xri("=john.doe"), xri("=jane.doe")
   end
 
+  def test_immutability_of_to_s
+    xri = xri("=john.doe")
+    xri.to_s.replace("")
+    assert_equal "=john.doe", xri.to_s
+  end
+
 protected
 
   def xri(str)
