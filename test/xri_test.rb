@@ -34,25 +34,25 @@ class XRITest < Test::Unit::TestCase
     end
   end
 
-  def test_personal_iname
+  def test_person_iname
     xri = XRI.new("=john.doe")
-    assert  xri.personal?
-    assert !xri.organizational?
-    assert !xri.conceptual?
+    assert  xri.person?
+    assert !xri.organization?
+    assert !xri.general_public?
   end
 
-  def test_organizational_iname
+  def test_organization_iname
     xri = XRI.new("@acme.corp")
-    assert !xri.personal?
-    assert  xri.organizational?
-    assert !xri.conceptual?
+    assert !xri.person?
+    assert  xri.organization?
+    assert !xri.general_public?
   end
 
-  def test_conceptual_iname
+  def test_general_public_iname
     xri = XRI.new("+address")
-    assert !xri.personal?
-    assert !xri.organizational?
-    assert  xri.conceptual?
+    assert !xri.person?
+    assert !xri.organization?
+    assert  xri.general_public?
   end
 
   def test_equality

@@ -11,15 +11,15 @@ class XRI
     @xri = xri
   end
 
-  def personal?
+  def person?
     @xri =~ /^=/
   end
 
-  def organizational?
+  def organization?
     @xri =~ /^@/
   end
 
-  def conceptual?
+  def general_public?
     @xri =~ /^\+/
   end
 
