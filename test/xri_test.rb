@@ -14,6 +14,10 @@ class XRITest < Test::Unit::TestCase
     end
   end
 
+  def test_uri_form
+    assert_equal "=john.doe", XRI.new("xri://=john.doe").to_s
+  end
+
   def test_empty_xri_should_fail
     assert_raise XRI::InvalidIdentifierException do
       XRI.new("")

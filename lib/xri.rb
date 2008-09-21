@@ -8,7 +8,7 @@ class XRI
       raise InvalidIdentifierException, xri 
     end
 
-    @xri = xri
+    @xri = xri.sub(/^xri:\/\//, '')
   end
 
   def person?
