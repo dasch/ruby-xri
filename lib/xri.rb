@@ -23,6 +23,10 @@ class XRI
     @xri =~ /^\+/
   end
 
+  def persistent?
+    @xri =~ /^.!/
+  end
+
   def == other
     @xri == other.to_s
   end

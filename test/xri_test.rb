@@ -20,6 +20,11 @@ class XRITest < Test::Unit::TestCase
     end
   end
 
+  def test_persistent_global_context_symbol
+    assert !XRI.new("=john.doe").persistent?
+    assert  XRI.new("=!1000.a1b2.93d2.8c73").persistent?
+  end
+
   def test_xri_with_only_global_context_symbol_should_fail
     %W[! @ = +].each do |xri|
       assert_raise XRI::InvalidIdentifierException do
